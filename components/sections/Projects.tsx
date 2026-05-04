@@ -26,7 +26,7 @@ function useFavorites() {
       if (next.has(id)) next.delete(id)
       else next.add(id)
       // Persist
-      try { localStorage.setItem(FAVORITES_KEY, JSON.stringify([...next])) } catch {}
+      try { localStorage.setItem(FAVORITES_KEY, JSON.stringify(Array.from(next))) } catch {}
       return next
     })
   }
