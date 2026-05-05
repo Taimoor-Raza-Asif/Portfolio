@@ -246,6 +246,7 @@ export default function Hero() {
 
       {/* Content wrapper — 2-column layout */}
       <div
+        className="hero-content-wrapper"
         style={{
           position: 'relative',
           zIndex: 1,
@@ -263,6 +264,7 @@ export default function Hero() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
+          className="hero-left-col"
           style={{
             display: 'flex',
             flexDirection: 'column',

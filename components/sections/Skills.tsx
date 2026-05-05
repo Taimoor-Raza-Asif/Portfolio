@@ -293,6 +293,7 @@ export default function Skills() {
     >
       {/* Top divider */}
       <div
+        className="section-divider"
         style={{
           position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)',
           width: '600px', height: '1px',
@@ -325,6 +326,7 @@ export default function Skills() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
+          className="skills-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
@@ -334,7 +336,7 @@ export default function Skills() {
           {/* Row 1: AI/LLM (wide) + Languages */}
           <motion.div
             variants={cardVariants}
-            className="card-hover"
+            className="card-hover skills-ai-wide"
             style={{
               gridColumn: 'span 2',
               backgroundColor: '#0d1520',

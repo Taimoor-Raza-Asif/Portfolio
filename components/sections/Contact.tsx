@@ -144,6 +144,7 @@ export default function Contact() {
     >
       {/* Top divider */}
       <div
+        className="section-divider"
         style={{
           position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)',
           width: '600px', height: '1px',
@@ -203,7 +204,7 @@ export default function Contact() {
         )}
 
         {/* Split layout */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+        <div className="contact-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
 
           {/* Left: Contact form */}
           <motion.div

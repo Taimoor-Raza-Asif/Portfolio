@@ -147,6 +147,7 @@ export default function Experience() {
     >
       {/* Top divider */}
       <div
+        className="section-divider"
         style={{
           position: 'absolute',
           top: 0,

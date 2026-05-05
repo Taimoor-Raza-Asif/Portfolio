@@ -62,6 +62,7 @@ export default function Projects() {
     <section id="projects" style={{ padding: '100px 1.5rem', backgroundColor: '#080b14', position: 'relative' }}>
       {/* Section top divider */}
       <div
+        className="section-divider"
         style={{
           position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)',
           width: '600px', height: '1px',

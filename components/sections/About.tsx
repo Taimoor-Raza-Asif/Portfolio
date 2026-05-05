@@ -42,6 +42,7 @@ export default function About() {
 
         {/* Split layout */}
         <div
+          className="about-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
