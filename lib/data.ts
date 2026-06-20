@@ -4,7 +4,7 @@ export const personalInfo = {
   tagline: 'Building intelligent systems that automate the real world.',
   bio: 'Software Engineer focused on AI-driven automation and Retrieval-Augmented Generation (RAG). I build custom AI agents, intelligent scrapers, and automation systems that actually work at scale.',
   aboutText:
-    "I'm a final-year Software Engineering student at FAST-NUCES Islamabad (2022–2026), specializing in AI systems and automation. I've shipped RAG pipelines, AI agents, WhatsApp bots, and full-stack platforms — not just academic projects, but tools solving real problems.",
+    "I'm a Software Engineer studied at FAST-NUCES Islamabad (2022–2026), specializing in AI systems and full-stack development. I've shipped RAG pipelines, AI agents, WhatsApp bots, and full-stack platforms — not just academic projects, but tools solving real problems.",
   location: 'Islamabad, Pakistan',
   email: 'taimoorrazaasif581@gmail.com',
   phone: '+92319-1938242',
@@ -61,6 +61,7 @@ export type Project = {
   tech: string[]
   category: string
   youtubeId?: string
+  thumbnail?: string
   driveLink?: string
   github?: string
   liveDemo?: string
@@ -77,10 +78,21 @@ export const projects: Project[] = [
       'A full-scale web management system for a religious institute covering student management, fee collection, attendance, salary, leave requests, marks, donations, billing, and multi-role dashboards. Features PDF receipt generation, role-based access control, and 7 custom themes.',
     tech: ['React', 'Node.js', 'Express', 'MongoDB', 'TailwindCSS', 'JWT', 'Recharts', 'jsPDF'],
     category: 'Full Stack',
+    thumbnail: '/assets/thumbnails/institute management.png',
     driveLink: 'https://drive.google.com/file/d/1K1CsFhcvJpRKQ2p1RvhgkIsqfLcxEOEj/view?usp=drive_link',
     privateRepo: true,
     featured: true,
     features: ['15+ Modules', 'RBAC', 'PDF Receipts', '7 Themes', 'Multi-Dashboard', 'MongoDB'],
+  },
+  {
+    id: 'lumina-ai',
+    title: 'Lumina AI — PDF Intelligence Assistant',
+    description:
+      'A RAG-powered PDF assistant that ingests PDF documents and answers detailed questions about their content. When deeper context is needed, it performs live web searches to enrich responses — combining document retrieval with real-time information.',
+    tech: ['Python', 'LangChain', 'Vector Databases', 'OpenAI API', 'Web Search'],
+    category: 'AI/RAG',
+    youtubeId: 'QzIdrTgj8EE',
+    thumbnail: '/assets/thumbnails/lumina ai.png',
   },
   {
     id: 'nuvoletro',
@@ -126,6 +138,8 @@ export const projects: Project[] = [
       'An automated RAG agent that analyzes and modernizes legacy codebases by interacting directly with file systems for autonomous refactoring.',
     tech: ['Python', 'LangChain', 'Vector Databases', 'OpenAI API'],
     category: 'AI Agent',
+    youtubeId: 'mM_0d6rIqs0',
+    thumbnail: '/assets/thumbnails/legacylens.png',
   },
   {
     id: 'whatsapp-ai',
@@ -142,6 +156,7 @@ export const projects: Project[] = [
       'Full redesign of a company website with modern UI/UX, responsive layout, and clean visual hierarchy. Built with React and Tailwind CSS for a premium look and feel.',
     tech: ['React', 'TailwindCSS'],
     category: 'Web Development',
+    thumbnail: '/assets/thumbnails/theseus.png',
     liveDemo: 'https://theseus-website-two.vercel.app',
     github: 'https://github.com/Taimoor-Raza-Asif/theseus_website',
   },
@@ -152,6 +167,7 @@ export const projects: Project[] = [
       'A functional flight search engine with real-time filtering, route search, and a clean booking-style UI. Includes price range charts and smart result sorting.',
     tech: ['React', 'JavaScript', 'API Integration'],
     category: 'Web Development',
+    thumbnail: '/assets/thumbnails/skysearch.png',
     liveDemo: 'https://sky-search-black.vercel.app/',
     github: 'https://github.com/Taimoor-Raza-Asif/SkySearch',
   },
@@ -162,6 +178,7 @@ export const projects: Project[] = [
       'A fintech dashboard for financial forecasting and data visualization using charts and predictive models. Features interactive charts, KPI cards, and trend analysis.',
     tech: ['JavaScript', 'Recharts', 'Node.js'],
     category: 'Full Stack',
+    thumbnail: '/assets/thumbnails/finforcaste.png',
     github: 'https://github.com/Taimoor-Raza-Asif/fintech-forecast',
   },
   {
@@ -171,13 +188,14 @@ export const projects: Project[] = [
       'A GUI tool that converts C/C++ code to Single Static Assignment (SSA) form, then to Z3 format for program equivalence checking and satisfiability analysis.',
     tech: ['Python', 'Z3 Solver', 'Tkinter'],
     category: 'Tools & Systems',
+    thumbnail: '/assets/thumbnails/single static.png',
     github: 'https://github.com/Taimoor-Raza-Asif/single-static-converter',
   },
 ]
 
 export const TAB_CATEGORIES: { label: string; ids: string[] | 'all' }[] = [
   { label: 'All', ids: 'all' },
-  { label: 'AI / RAG', ids: ['nuvoletro', 'ilm-ora', 'auto-docs', 'legacylens', 'whatsapp-ai'] },
+  { label: 'AI / RAG', ids: ['lumina-ai', 'nuvoletro', 'ilm-ora', 'auto-docs', 'legacylens', 'whatsapp-ai'] },
   { label: 'Full Stack', ids: ['ilm-ora', 'fithum', 'fintech', 'jamia'] },
   { label: 'Web Dev', ids: ['theseus', 'skysearch'] },
   { label: 'Tools & Systems', ids: ['ssa-converter'] },
@@ -236,6 +254,7 @@ export const experiences: ExperienceEntry[] = [
 export const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
+  { label: 'Certs', href: '#certifications' },
   { label: 'Projects', href: '#projects' },
   { label: 'Experience', href: '#experience' },
   { label: 'Contact', href: '#contact' },

@@ -72,9 +72,9 @@ function CardShell({
 
 // ── 1. LANGUAGES card — progress bars ────────────────────────────────────────
 const languages: { name: string; pct: number; color: string }[] = [
-  { name: 'Python', pct: 92, color: '#22d3ee' },
+  { name: 'Python', pct: 80, color: '#22d3ee' },
   { name: 'JavaScript', pct: 80, color: '#818cf8' },
-  { name: 'C++', pct: 60, color: '#f472b6' },
+  { name: 'C++', pct: 75, color: '#f472b6' },
 ]
 
 function LanguagesCard() {
@@ -247,6 +247,8 @@ const devopsItems: DevopsItem[] = [
   { name: 'GitHub Actions' },
   { name: 'Jenkins' },
   { name: 'Postman' },
+  { name: 'AWS' },
+  { name: 'Cloud (EC2, S3, IAM)' },
 ]
 
 function DevopsItem({ name }: DevopsItem) {
@@ -284,6 +286,49 @@ function DevopsCard() {
   )
 }
 
+// ── 6. FRAMEWORKS card — indigo chip grid ─────────────────────────────────────
+const frameworkItems = [
+  { name: 'React.js' },
+  { name: 'Next.js' },
+  { name: 'Node.js' },
+  { name: 'Express.js' },
+  { name: 'TailwindCSS' },
+  { name: 'REST APIs' },
+]
+
+function FrameworkItem({ name }: { name: string }) {
+  return (
+    <motion.div
+      whileHover={{ backgroundColor: 'rgba(129,140,248,0.12)', borderColor: 'rgba(129,140,248,0.35)' }}
+      style={{
+        display: 'flex', alignItems: 'center', gap: '0.5rem',
+        backgroundColor: 'rgba(129,140,248,0.05)',
+        border: '0.5px solid rgba(129,140,248,0.15)',
+        borderRadius: '8px', padding: '0.45rem 0.65rem',
+        transition: 'all 0.2s',
+      }}
+    >
+      <div style={{
+        width: 6, height: 6, flexShrink: 0,
+        backgroundColor: '#818cf8',
+        borderRadius: '50%',
+        boxShadow: '0 0 5px rgba(129,140,248,0.55)',
+      }} />
+      <span style={{ fontSize: '11px', fontWeight: 500, color: '#a5b4fc', letterSpacing: '0.2px', whiteSpace: 'nowrap' }}>{name}</span>
+    </motion.div>
+  )
+}
+
+function FrameworksCard() {
+  return (
+    <CardShell icon="⚛️" label="Frameworks & Stack" labelColor="#818cf8" borderColor="rgba(129,140,248,0.2)">
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.4rem' }}>
+        {frameworkItems.map((item) => <FrameworkItem key={item.name} {...item} />)}
+      </div>
+    </CardShell>
+  )
+}
+
 // ── Section ───────────────────────────────────────────────────────────────────
 export default function Skills() {
   return (
@@ -311,9 +356,9 @@ export default function Skills() {
           style={{ marginBottom: '4rem' }}
         >
           <p className="section-number" style={{ marginBottom: '0.5rem' }}>// 002</p>
-          <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, color: '#f1f5f9', letterSpacing: '-1px' }}>
+          <h2 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 800, color: '#f1f5f9', letterSpacing: '-1px', paddingRight: '0.25rem' }}>
             Tech{' '}
-            <span className="gradient-text" style={{ fontStyle: 'italic' }}>Arsenal</span>
+            <span className="gradient-text" style={{ fontStyle: 'italic', paddingRight: '4px' }}>Arsenal</span>
           </h2>
           <p style={{ color: '#475569', fontSize: '0.9rem', marginTop: '0.5rem' }}>
             Tools and technologies I use to build intelligent systems
@@ -376,7 +421,8 @@ export default function Skills() {
 
           <LanguagesCard />
 
-          {/* Row 2: Databases + Automation + DevOps */}
+          {/* Row 2: Frameworks + Databases + Automation + DevOps */}
+          <FrameworksCard />
           <DatabasesCard />
           <AutomationCard />
           <DevopsCard />

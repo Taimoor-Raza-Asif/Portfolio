@@ -313,9 +313,35 @@ export default function Hero() {
           </motion.div>
 
           {/* Greeting + Name */}
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} style={{ position: 'relative' }}>
+            {/* Large watermark monogram behind the name */}
+            <div
+              aria-hidden="true"
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '-0.5rem',
+                transform: 'translateY(-50%)',
+                fontSize: 'clamp(6rem, 14vw, 10rem)',
+                fontWeight: 900,
+                fontFamily: '"JetBrains Mono", monospace',
+                color: 'transparent',
+                WebkitTextStroke: '1px rgba(34,211,238,0.08)',
+                letterSpacing: '-4px',
+                lineHeight: 1,
+                pointerEvents: 'none',
+                userSelect: 'none',
+                whiteSpace: 'nowrap',
+                zIndex: 0,
+              }}
+            >
+              TRA
+            </div>
+
             <p
               style={{
+                position: 'relative',
+                zIndex: 1,
                 fontFamily: '"JetBrains Mono", monospace',
                 fontSize: '0.85rem',
                 color: '#22d3ee',
@@ -327,6 +353,8 @@ export default function Hero() {
             </p>
             <h1
               style={{
+                position: 'relative',
+                zIndex: 1,
                 fontSize: 'clamp(2.4rem, 5.5vw, 4.25rem)',
                 fontWeight: 800,
                 lineHeight: 1.05,

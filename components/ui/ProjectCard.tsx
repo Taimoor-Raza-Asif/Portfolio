@@ -50,7 +50,10 @@ const StarIcon = ({ filled }: { filled: boolean }) => (
 )
 
 export default function ProjectCard({ project, onPlay, isFavorite, onToggleFavorite }: ProjectCardProps) {
-  const thumbnailUrl = project.youtubeId
+  // Prefer local thumbnail; fall back to YouTube API thumbnail
+  const thumbnailUrl = project.thumbnail
+    ? project.thumbnail
+    : project.youtubeId
     ? `https://img.youtube.com/vi/${project.youtubeId}/maxresdefault.jpg`
     : null
 
@@ -170,7 +173,10 @@ export default function ProjectCard({ project, onPlay, isFavorite, onToggleFavor
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = 'scale(1)' }}
               onError={(e) => {
                 const img = e.currentTarget as HTMLImageElement
-                if (img.src.includes('maxresdefault')) img.src = `https://img.youtube.com/vi/${project.youtubeId}/hqdefault.jpg`
+                // Only retry with hqdefault for YouTube thumbnails (not local images)
+                if (project.youtubeId && img.src.includes('maxresdefault')) {
+                  img.src = `https://img.youtube.com/vi/${project.youtubeId}/hqdefault.jpg`
+                }
               }}
             />
             {hasVideo && (

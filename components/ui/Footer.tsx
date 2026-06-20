@@ -122,7 +122,7 @@ export default function Footer() {
             letterSpacing: '1px',
           }}
         >
-          © 2025 · Built by{' '}
+          © 2026 · Built by{' '}
           <span style={{ color: '#22d3ee' }}>Taimoor Raza Asif</span>
           {' '}· All rights reserved
         </p>
