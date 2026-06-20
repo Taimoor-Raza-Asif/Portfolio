@@ -216,42 +216,51 @@ function TrainingCard({ img, title }: { img: string; title: string }) {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        gap: '0.75rem',
+        gap: '0.85rem',
         backgroundColor: '#0d1520',
-        border: '0.5px solid #1e2a3a',
-        borderRadius: '12px',
-        padding: '1.25rem 1rem',
+        border: '1px solid #1e2a3a',
+        borderRadius: '14px',
+        padding: '1.4rem 0.85rem 1.25rem',
         textDecoration: 'none',
         transition: 'all 0.25s',
         cursor: 'pointer',
+        flex: '0 0 auto',
+        width: 155,
       }}
     >
+      {/* Circle with padding so badge is not cropped 34,211,238,0.25 */}
       <div
         style={{
-          width: 72,
-          height: 72,
+          width: 120,
+          height: 120,
           borderRadius: '50%',
-          overflow: 'hidden',
-          border: '1.5px solid rgba(34,211,238,0.2)',
-          background: '#141f2e',
+          border: '2.5px solid rgba(34,211,238,0.25)',
+          boxShadow: '0 0 20px rgba(34,211,238,0.09)',
+          background: '#ffffffff',
           flexShrink: 0,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '8px',
+          boxSizing: 'border-box',
         }}
       >
         <Image
           src={img}
           alt={title}
-          width={72}
-          height={72}
-          style={{ objectFit: 'cover', width: '100%', height: '100%' }}
+          width={80}
+          height={80}
+          style={{ objectFit: 'contain', width: '100%', height: '100%' }}
         />
       </div>
       <p
         style={{
-          fontSize: '0.72rem',
+          fontSize: '0.7rem',
           color: '#94a3b8',
           textAlign: 'center',
-          lineHeight: 1.4,
+          lineHeight: 1.45,
           fontWeight: 500,
+          width: '100%',
         }}
       >
         {title}
@@ -340,34 +349,58 @@ export default function Certifications() {
           Training &amp; Workshops
         </motion.p>
 
-        {/* Training grid */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))',
-            gap: '1rem',
-          }}
-          className="certs-grid"
-        >
-          {trainingBadges.map((b) => (
-            <TrainingCard key={b.title} {...b} />
-          ))}
-        </motion.div>
+        {/* Training row — all 6 badges in one row, scrollable on small screens */}
+        <div className="certs-scroll-wrapper">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={containerVariants}
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              gap: '1rem',
+              justifyContent: 'space-between',
+            }}
+            className="certs-row"
+          >
+            {trainingBadges.map((b) => (
+              <TrainingCard key={b.title} {...b} />
+            ))}
+          </motion.div>
+        </div>
       </div>
 
       <style>{`
+        .certs-scroll-wrapper {
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          /* hide scrollbar but keep functionality */
+          scrollbar-width: thin;
+          scrollbar-color: rgba(34,211,238,0.15) transparent;
+        }
+        .certs-scroll-wrapper::-webkit-scrollbar {
+          height: 4px;
+        }
+        .certs-scroll-wrapper::-webkit-scrollbar-thumb {
+          background: rgba(34,211,238,0.15);
+          border-radius: 999px;
+        }
+        .certs-row {
+          min-width: max-content;
+        }
+        @media (min-width: 1100px) {
+          .certs-row {
+            min-width: unset !important;
+            justify-content: space-between !important;
+          }
+        }
         @media (max-width: 640px) {
           .featured-cert-card {
             flex-direction: column !important;
             text-align: center;
             padding: 1.5rem !important;
-          }
-          .certs-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
           }
         }
       `}</style>
