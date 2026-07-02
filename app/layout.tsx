@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Taimoor Raza Asif — AI Engineer & Software Developer',
+  title: 'Taimoor Raza Asif - Portfolio',
   description:
     'Personal portfolio of Taimoor Raza Asif, an AI Engineer specializing in RAG pipelines, AI agents, automation systems, and full-stack development based in Islamabad, Pakistan.',
   keywords: [
